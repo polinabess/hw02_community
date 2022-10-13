@@ -26,11 +26,11 @@ class Post(models.Model):
     )
 
     class Meta:
-        ordering = ['-pub_date',]
+        ordering = ['-pub_date', ]
 
     def __str__(self) -> str:
-        # выводим текст поста 
-        return self.text 
+        # выводим текст поста
+        return self.text
 
 
 class Group(models.Model):
@@ -40,4 +40,3 @@ class Group(models.Model):
 
     def __str__(self) -> str:
         return self.title
-
