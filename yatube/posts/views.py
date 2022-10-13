@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 # from django.http import HttpResponse
 from .models import Post, Group
-AMOUNT_OF_POSTS_ON_PAGE = 10
+AMOUNT_POSTS_ON_PAGE = 10
 
 
 def index(request):
@@ -11,7 +11,7 @@ def index(request):
     # в переменную posts будет сохранена выборка из 10 объектов модели Post,
     # отсортированных по полю pub_date по убыванию
     # (от больших значений к меньшим)
-    posts = Post.objects.order_by('-pub_date')[:AMOUNT_OF_POSTS_ON_PAGE]
+    posts = Post.objects.all()[:AMOUNT_POSTS_ON_PAGE]
     # В словаре context отправляем информацию в шаблон
     context = {
         'posts': posts,
@@ -21,7 +21,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = group.group.order_by('-pub_date')[:AMOUNT_OF_POSTS_ON_PAGE]
+    posts = group.posts_of_group.all()[:AMOUNT_POSTS_ON_PAGE]
     context = {
         'group': group,
         'posts': posts,

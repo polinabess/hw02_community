@@ -8,15 +8,7 @@
     <h1>{{ text }}</h1>
     <article>
       {% for post in posts %}
-        <ul>
-          <li>
-            Автор: {{ post.author.get_full_name }}
-          </li>
-          <li>
-            Дата публикации: {{ post.pub_date|date:"d E Y" }}
-          </li>
-        </ul>
-      <p>{{ post.text }}</p>    
+      {% include 'includes/output_posts_in_loop.html' %}    
       {% if post.group %}   
         <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
       {% endif %}
