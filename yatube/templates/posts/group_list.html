@@ -12,7 +12,7 @@
     </p>
     <article>
       {% for post in posts %}
-        {% include 'includes/output_posts_in_loop.html' %}     
+        {% include 'includes/post_detail.html' %}     
         {% if not forloop.last %}<hr>{% endif %}
       {% endfor %}
     </article>

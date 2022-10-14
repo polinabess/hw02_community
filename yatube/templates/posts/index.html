@@ -8,7 +8,7 @@
     <h1>{{ text }}</h1>
     <article>
       {% for post in posts %}
-      {% include 'includes/output_posts_in_loop.html' %}    
+      {% include 'includes/post_detail.html' %}    
       {% if post.group %}   
         <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
       {% endif %}
